@@ -1,0 +1,67 @@
+.stages {
+  padding-top: 63px;
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__wrap {
+    margin-bottom: 13px;
+    &-item {
+      position: relative;
+      align-items: center;
+      margin: 20px 0;
+
+      @include xs-block {
+        margin: 0;
+        @include u-row-flex(0px);
+      }
+
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+    }
+
+    &-text {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      font-weight: 700;
+      font-size: 36px;
+      background: rgba(#000000, 0.7);
+      color: #fff;
+      mix-blend-mode: multiply;
+      box-sizing: border-box;
+      z-index: 10;
+
+      @include xs-block {
+        position: static;
+        background: none;
+        color: inherit;
+        font-size: 22px;
+        font-weight: 300;
+        mix-blend-mode: unset;
+
+        @include u-col(0px);
+        @include u-size(6, 12, 0px);
+        @include sm(font-size, 30px);
+      }
+    }
+
+    &-picture {
+      @include xs-block {
+        @include u-col(0);
+        @include u-size(6, 12, 0px);
+      }
+    }
+
+    &-image {
+      display: block;
+    }
+  }
+}

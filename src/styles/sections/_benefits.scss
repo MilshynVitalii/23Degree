@@ -1,0 +1,32 @@
+.benefits {
+  background-color: $bg-color;
+  padding-top: 40px;
+
+  &__title {
+    margin-bottom: 11px;
+  }
+
+  &__wrap {
+    @include row-flex;
+    justify-content: center;
+
+    &-item {
+      @include col;
+      @include size(12);
+      @include size-xs(6);
+      @include size-sm(4);
+      @include size-md(3);
+
+      max-width: 300px;
+      text-align: center;
+      margin-top: 19px;
+      margin-bottom: 19px;
+
+      &-descr {
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 17px;
+      }
+    }
+  }
+}

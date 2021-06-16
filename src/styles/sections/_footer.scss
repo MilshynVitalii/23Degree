@@ -1,0 +1,51 @@
+.footer {
+  background-color: #24241f;
+  color: #ffffff;
+  font-size: 14px;
+
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 30px 0;
+
+    &:first-child {
+      border-bottom: 1px solid #aaaaaa;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    max-width: 560px;
+  }
+
+  &__link {
+    display: block;
+    width: 185px;
+    margin: 5px 0;
+  }
+
+  &__social {
+    &-text {
+      margin-bottom: 10px;
+    }
+
+    &-link {
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+
+  &__copy,
+  &__development {
+    display: block;
+    margin: 10px 0;
+  }
+
+  &__dev {
+    font-size: 16px;
+    font-weight: 700;
+  }
+}

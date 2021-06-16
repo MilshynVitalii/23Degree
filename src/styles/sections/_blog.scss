@@ -1,0 +1,32 @@
+.blog {
+  background-color: $bg-color;
+  padding-top: 46px;
+
+  &__wrap {
+    @include row-flex;
+    justify-content: center;
+    margin-top: -17px;
+
+    &-item {
+      @include col;
+      @include size(12);
+      @include size-sm(6);
+
+      text-align: center;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      max-width: 555px;
+    }
+
+    &-link {
+      display: block;
+      color: $primary-color;
+      margin-top: 10px;
+
+      @include md-block {
+        font-size: 18px;
+        margin-top: 25px;
+      }
+    }
+  }
+}

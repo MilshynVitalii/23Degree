@@ -1,0 +1,142 @@
+.portfolio {
+  &__title {
+    margin-bottom: 28px;
+  }
+
+  &__wrap {
+    @include row-flex;
+
+    position: relative;
+    justify-content: center;
+    margin-bottom: -15px;
+
+    &-item {
+      @include col;
+      @include size(12);
+      @include size-xs(6);
+      @include size-sm(4);
+
+      margin-top: 15px;
+      margin-bottom: 15px;
+      max-width: 360px;
+    }
+
+    &-image {
+      display: block;
+      width: 100%;
+    }
+
+    & .exterior,
+    & .living,
+    & .public {
+      opacity: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    &.all {
+      .exterior,
+      .living,
+      .public {
+        position: static;
+        opacity: 1;
+      }
+    }
+
+    &.exterior {
+      .exterior {
+        position: static;
+        opacity: 1;
+      }
+    }
+
+    &.living {
+      .living {
+        position: static;
+        opacity: 1;
+      }
+    }
+
+    &.public {
+      .public {
+        position: static;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__menu {
+    display: block;
+    padding: 3px 10px;
+    border: 1px solid $primary-color;
+    border-radius: 5px;
+    max-width: 800px;
+    margin: 10px auto;
+    color: $primary-color;
+    justify-content: space-between;
+
+    @include xs-block {
+      display: flex;
+      border-radius: 50px;
+    }
+
+    &-item {
+      position: relative;
+      display: block;
+      text-transform: uppercase;
+      font-size: 12px;
+      padding: 10px 0;
+      flex-grow: 1;
+      text-align: center;
+      box-sizing: border-box;
+      cursor: pointer;
+
+      @include sm-block {
+        font-size: 14px;
+        &:not(:last-child) {
+          border-right: 1px solid $primary-color;
+        }
+      }
+    }
+
+    &-active {
+      background-color: $primary-color;
+      color: #ffffff;
+
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -4px;
+        bottom: -4px;
+        left: -12px;
+        right: -12px;
+        border: 13px solid $primary-color;
+        border-radius: 5px;
+      }
+
+      @include xs-block {
+        &:after {
+          top: -6px;
+          bottom: -6px;
+          left: -6px;
+          right: -6px;
+          border-width: 7px;
+        }
+
+        &:first-child:after {
+          left: -12px;
+          border-left-width: 12px;
+          border-radius: 50px 5px 5px 50px;
+        }
+
+        &:last-child:after {
+          right: -12px;
+          border-right-width: 12px;
+          border-radius: 5px 50px 50px 5px;
+        }
+      }
+    }
+  }
+}

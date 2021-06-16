@@ -1,0 +1,37 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "gulpfile.js",
+  "scripts": {
+    "dev": "gulp dev --map --sync",
+    "build": "gulp build --clean"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "critical": "^3.0.1",
+    "del": "^5.1.0",
+    "express": "^4.17.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-webp": "^4.0.1",
+    "node-sass": "^6.0.0"
+  },
+  "browserslist": "> 0.1%",
+  "dependencies": {
+    "smart-grid": "^2.1.2"
+  }
+}

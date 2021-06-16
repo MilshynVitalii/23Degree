@@ -1,0 +1,77 @@
+.team {
+  padding-bottom: 65px;
+
+  &__staff {
+    @include row-flex;
+    margin-top: -20px;
+
+    &-official {
+      @include col;
+      @include size(12);
+      @include size-xs(6);
+      @include size-sm(4);
+
+      text-align: center;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+
+    &-name {
+      display: block;
+      font-size: 24px;
+      color: $primary-color;
+      margin: 10px 0 8px;
+    }
+  }
+
+  &__motto {
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 57px;
+
+    &-title {
+      font-size: 30px;
+      max-width: 300px;
+      margin: 0 auto 10px;
+
+      @include xs(max-width, none);
+    }
+
+    &-text {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    &-official {
+      display: block;
+      font-weight: 500;
+      margin: 15px 0 5px;
+
+      &-position {
+        font-size: 16px;
+      }
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 47px;
+      height: 37px;
+    }
+
+    &:before {
+      left: 0;
+      top: 0;
+      background: url(../images/team/quote-left.png) no-repeat center;
+    }
+
+    &:after {
+      right: 0;
+      bottom: 0;
+      background: url(../images/team/quote-right.png) no-repeat center;
+    }
+  }
+}

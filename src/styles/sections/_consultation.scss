@@ -1,0 +1,126 @@
+.consultation {
+  background: url(../images/consultation-bg.jpg) no-repeat center;
+  background-size: cover;
+  color: #ffffff;
+  padding-top: 50px;
+
+  &__title {
+    border-color: #ffffff;
+    margin-bottom: 18px;
+  }
+
+  &__subtitle {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 42px;
+
+    @include xs(font-size, 26px);
+  }
+
+  &__wrap {
+    @include row-flex;
+  }
+
+  &__set {
+    @include col;
+    @include size(12);
+    @include size-xs(7);
+    @include size-sm(8);
+
+    margin-bottom: 15px;
+  }
+
+  &__contacts {
+    @include col;
+    @include size(12);
+    @include size-xs(5);
+    @include size-sm(4);
+
+    text-align: center;
+    margin-top: 40px;
+
+    @include xs-block {
+      text-align: left;
+      margin-top: 0;
+    }
+
+    &-item {
+      display: inline-flex;
+      align-items: center;
+      margin: 0 15px 11px;
+      width: 200px;
+
+      @include xs(margin, 0 0 11px);
+    }
+
+    &-link {
+      display: block;
+      font-weight: 500;
+      margin-left: 15px;
+      font-size: 18px;
+    }
+
+    &-time {
+      margin-top: 22px;
+    }
+  }
+
+  &__form {
+    text-align: center;
+    &-inputs {
+      @include u-row-flex(15px);
+    }
+
+    &-set,
+    &-set_area {
+      @include u-col(15px);
+
+      position: relative;
+      margin-bottom: 15px;
+      & .form-error-text {
+        left: 5px;
+        bottom: -14px;
+      }
+    }
+
+    &-set {
+      @include u-size(12, 12, 15px);
+
+      @include sm-block {
+        @include u-size(4, 12, 15px);
+      }
+    }
+
+    &-set_area {
+      @include u-size(12, 12, 15px);
+    }
+
+    &-input,
+    &-textarea {
+      width: 100%;
+      padding: 16px;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      font-size: 13px;
+      box-sizing: border-box;
+
+      &.form-error {
+        border-color: rgb(255, 127, 127);
+        & + .form-error-text {
+          display: block;
+        }
+      }
+    }
+
+    &-textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    &-submit {
+      width: 210px;
+      font-size: 15px;
+      margin-top: 5px;
+    }
+  }
+}

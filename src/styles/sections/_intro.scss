@@ -1,0 +1,257 @@
+.intro {
+  background: #5c5444 url(../images/intro-bg.jpg) no-repeat top center;
+  background-size: cover;
+  color: #ffffff;
+  text-align: center;
+  padding: 0 0 50px;
+
+  &__navigation {
+    display: block;
+    position: absolute;
+    top: 80%;
+    right: 0;
+    width: 100%;
+    height: 60vh;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: space-around;
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+
+    @include sm-block {
+      display: flex;
+      height: auto;
+    }
+
+    &-item {
+      font-size: 16px;
+      padding: 15px 0;
+    }
+  }
+
+  &__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 35px 0;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    font-size: 28px;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &-img {
+      display: block;
+      width: 60px;
+      height: 60px;
+    }
+
+    &-text {
+      margin-left: 10px;
+    }
+  }
+
+  &__phone {
+    display: none;
+    align-items: center;
+    text-align: left;
+    margin-right: 63px;
+
+    @include xs(display, flex);
+
+    &-details {
+      margin-left: 10px;
+    }
+
+    &-tel {
+      display: block;
+      font-size: 21px;
+    }
+  }
+
+  &__burger {
+    text-align: center;
+    cursor: pointer;
+
+    &-button {
+      position: relative;
+      width: 45px;
+      height: 25px;
+    }
+
+    &-line {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      border-bottom: 3px solid #ffffff;
+
+      &:nth-child(1) {
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &:nth-child(3) {
+        top: calc(100% - 3px);
+      }
+    }
+
+    &-text {
+      display: block;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    &.active-burger & {
+      &-button {
+        width: 25px;
+        height: 35px;
+        margin: 0 10px;
+      }
+
+      &-line {
+        &:nth-child(1) {
+          top: 25%;
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          display: none;
+        }
+
+        &:nth-child(3) {
+          top: 25%;
+          transform: rotate(-45deg);
+        }
+      }
+
+      &-text {
+        display: none;
+      }
+    }
+
+    &.active-burger + .intro__navigation {
+      opacity: 1;
+      pointer-events: visible;
+    }
+  }
+
+  &__main {
+    &-title {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 0.9;
+      margin: 28px auto 36px;
+
+      @include xs(font-size, 48px);
+
+      &_sm {
+        font-size: 28px;
+
+        @include xs(font-size, 36px);
+      }
+    }
+
+    &-subtitle {
+      font-size: 18px;
+      font-weight: 300;
+
+      sup {
+        font-size: 14px;
+      }
+
+      @include xs(font-size, 22px);
+    }
+
+    &-descr {
+      font-size: 14px;
+      margin-bottom: 75px;
+    }
+
+    &-mousebutton {
+      padding: 0 5px;
+      animation: pulse 1s ease alternate infinite;
+
+      &:hover {
+        animation: unset;
+      }
+    }
+
+    @keyframes pulse {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0.2;
+      }
+    }
+  }
+
+  &__form {
+    margin: 35px auto 20px;
+    position: relative;
+
+    &-set {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      max-width: 290px;
+      margin: 8px 4px;
+      text-align: left;
+      border: none;
+      z-index: 10;
+    }
+
+    &-input {
+      font-size: 13px;
+      width: 100%;
+      padding: 16px 25px;
+      border: 2px solid transparent;
+      border-radius: 30px;
+      box-sizing: border-box;
+
+      &.form-error {
+        border-color: rgb(255, 127, 127);
+        & + .form-error-text {
+          display: block;
+        }
+      }
+    }
+
+    &-submit {
+      position: relative;
+      display: block;
+      width: 100%;
+      max-width: 230px;
+      margin: 10px auto 0;
+      padding: 22px 0;
+      font-size: 16px;
+      z-index: 10;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      top: 35px;
+      bottom: 30px;
+      border: 1px solid rgba(#ffffff, 0.3);
+      z-index: 0;
+      box-sizing: border-box;
+    }
+  }
+}

@@ -1,0 +1,252 @@
+.count {
+  background: url(../images/price-bg.jpg) no-repeat top center;
+  background-size: cover;
+  color: #ffffff;
+
+  &__title {
+    border-color: #ffffff;
+    margin-bottom: 22px;
+  }
+
+  &__subtitle {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 35px;
+
+    @include xs(font-size, 26px);
+  }
+
+  &__wrap {
+    @include row-flex;
+  }
+
+  &__options {
+    margin-bottom: 30px;
+
+    @include col;
+    @include size(12);
+    @include size-sm(7);
+
+    &-title {
+      font-weight: 500;
+      margin-bottom: 18px;
+
+      @include xs(font-size, 20px);
+    }
+
+    &-squares,
+    &-package {
+      border: 1px solid #ffffff;
+      border-radius: 5px;
+      padding: 18px 20px;
+      margin-bottom: 8px;
+      box-sizing: border-box;
+    }
+
+    &-radios {
+      display: flex;
+      position: relative;
+      justify-content: space-between;
+      margin-top: 35px;
+
+      &:after {
+        content: "";
+        display: block;
+        width: 98%;
+        left: 3px;
+        bottom: 9px;
+        position: absolute;
+        border-top: 8px solid rgba(#ffffff, 0.5);
+        box-sizing: border-box;
+        z-index: 0;
+      }
+    }
+  }
+
+  &__radio {
+    position: relative;
+    text-align: center;
+    z-index: 10;
+
+    &-number {
+      position: absolute;
+      min-width: 80px;
+      text-align: left;
+      bottom: 100%;
+      left: 0;
+      font-size: 14px;
+      @include xs(font-size, 16px);
+    }
+
+    &:nth-child(2) & {
+      &-number {
+        left: -20px;
+      }
+    }
+
+    &:nth-child(3) & {
+      &-number {
+        left: -30px;
+      }
+    }
+
+    &:last-child & {
+      &-number {
+        text-align: right;
+        left: auto;
+        right: 0;
+      }
+    }
+
+    &-button {
+      display: inline-block;
+      position: relative;
+      width: 18px;
+      height: 18px;
+      margin-top: 9px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:after {
+        content: "";
+        position: absolute;
+        display: none;
+        top: -3px;
+        left: -3px;
+        width: 24px;
+        height: 24px;
+        border: 9px solid $primary-color;
+        border-radius: 50%;
+        box-sizing: border-box;
+      }
+    }
+
+    &-square {
+      display: none;
+
+      &:checked + .count__radio-button:after {
+        display: block;
+      }
+    }
+  }
+
+  &__package {
+    &-wrap {
+      @include u-row-flex(14px);
+
+      position: relative;
+    }
+
+    &-check {
+      display: none;
+
+      &:checked + .count__package-button {
+        border-color: $primary-color;
+        background-color: $primary-color;
+      }
+    }
+
+    &-button {
+      @include u-col(14px);
+      @include u-size(4, 12, 14px);
+
+      border: 1px solid #ffffff;
+      border-radius: 5px;
+      padding: 12px 0;
+      text-align: center;
+      cursor: pointer;
+
+      &-descr_light,
+      &-descr_medium,
+      &-descr_full {
+        display: none;
+        position: absolute;
+        top: 130%;
+        padding: 20px;
+        width: 100%;
+        max-width: 440px;
+        background-color: #ffffff;
+        color: #000000;
+        border-radius: 5px;
+        box-sizing: border-box;
+
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          width: 25px;
+          height: 25px;
+          top: -12px;
+          left: 25%;
+          transform: rotate(45deg);
+          background-color: #ffffff;
+          z-index: 10;
+        }
+      }
+
+      &-descr_light {
+        left: 0;
+
+        &:after {
+          left: 20%;
+        }
+      }
+
+      &-descr_medium {
+        left: 50%;
+        transform: translateX(-50%);
+
+        &:after {
+          left: 50%;
+          transform: translateX(-50%) rotate(45deg);
+        }
+      }
+
+      &-descr_full {
+        right: 0;
+
+        &:after {
+          left: auto;
+          right: 20%;
+        }
+      }
+
+      &:hover &-descr_light,
+      &:hover &-descr_medium,
+      &:hover &-descr_full {
+        display: block;
+      }
+    }
+  }
+
+  &__result {
+    text-align: center;
+
+    @include col;
+    @include size(12);
+    @include size-sm(5);
+
+    &-number {
+      display: block;
+      font-size: 32px;
+      margin: 5px auto 15px;
+    }
+
+    &-button {
+      width: 100%;
+      max-width: 310px;
+      margin-top: 10px;
+    }
+
+    &-tel {
+      font-weight: 500;
+
+      &_text {
+        display: block;
+        font-size: 14px;
+        margin: 20px auto 5px;
+      }
+    }
+  }
+}
