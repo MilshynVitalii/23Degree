@@ -13,6 +13,19 @@ html {
   font-weight: 300;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+}
+
+section {
+  padding: 53px 0;
+}
+
 button {
   background: none;
   border: none;
@@ -40,6 +53,16 @@ a {
   border-radius: 30px;
   color: #ffffff;
   background-color: $primary-color;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 300;
+  max-width: 450px;
+  text-align: center;
+  margin: 0 auto 37px;
+  padding-bottom: 19px;
+  border-bottom: 1px solid $primary-color;
 }
 
 .form-error-text {
@@ -234,7 +257,74 @@ a {
   }
 }
 
+.services {
+  padding-bottom: 53px;
+  &__wrap {
+    margin: 20px 0;
+    position: relative;
+    align-items: center;
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  &__descr,
+  &__visual {
+    box-sizing: border-box;
+    word-wrap: break-word;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: calc(100% - 30px);
+  }
+
+  &__descr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    box-sizing: border-box;
+
+    &-title {
+      color: $primary-color;
+      font-size: 24px;
+      font-weight: 300;
+    }
+
+    &-text {
+      font-size: 14px;
+      margin: 7px 0 10px;
+    }
+
+    &-button {
+      width: 180px;
+      text-align: center;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &__visual {
+      &-image {
+        display: block;
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 576px) {
+  .section-title {
+    font-size: 36px;
+  }
+
   .intro {
     &__phone {
       display: flex;
@@ -251,6 +341,41 @@ a {
 
       &-subtitle {
         font-size: 22px;
+      }
+    }
+  }
+
+  .services {
+    &__wrap {
+      &:nth-child(odd) {
+        flex-direction: row-reverse;
+      }
+    }
+
+    &__descr,
+    &__visual {
+      width: calc(50% - 30px);
+    }
+
+    &__descr {
+      position: static;
+      background: none;
+      color: #000000;
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .services {
+    &__descr {
+      &-title {
+        font-size: 28px;
+      }
+
+      &-text {
+        font-size: 18px;
+        margin-bottom: 20px;
       }
     }
   }
