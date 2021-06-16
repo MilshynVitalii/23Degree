@@ -14,6 +14,9 @@ const smartGrid = require('smart-grid');
 const webp = require('gulp-webp');
 const path = require('path');
 const htmlmin = require('gulp-htmlmin');
+const replace = require('gulp-replace');
+const fs = require('fs');
+
 
 let isMap = process.argv.includes('--map');
 let isMinify = process.argv.includes('--clean');
@@ -71,10 +74,7 @@ function fonts(){
 function scripts(){
 	return gulp.src('./src/js/main.js')
 			   .pipe(minify({
-					ext:{
-						src:'.min.js',
-						min:'.js'
-					}
+					noSource: true
 			   }))
 			   .pipe(gulp.dest('./build/js'))
 			   .pipe(gulpIf(isSync, browserSync.stream()));
@@ -103,7 +103,20 @@ function grid(done){
 	done();
 }
 
-let build = gulp.series(clean, gulp.parallel(html, styles, images, webpImages, scripts, fonts, ico));
+function replaceCode(){
+	return gulp.src('./build/*.html')
+			   .pipe(replace('<link rel="stylesheet" type="text/css" href="./css/main.css">', function() {
+			   	const style = fs.readFileSync('./build/css/critical.css', 'utf8');
+			   	return `<style>${style}</style>`;
+			   }))
+			   .pipe(replace('<!--asyncCss-->', function() {
+			   	return `<script>function loadStyle(url){let link = document.createElement('link');link.href = url;link.rel = 'stylesheet';document.body.appendChild(link);}loadStyle('css/main.css');</script>`;
+			   }))
+			   .pipe(gulp.dest('./build'))
+			   .pipe(gulpIf(isSync, browserSync.stream()));
+}
+
+let build = gulp.series(clean, gulp.parallel(html, styles, images, webpImages, scripts, fonts, ico), replaceCode);
 let dev = gulp.series(build, watch);
 
 gulp.task('build', build);
